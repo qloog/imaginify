@@ -33,3 +33,16 @@ Ok to proceed? (y)
 Success! Project initialization completed. You may now add components.
 ```
 
+## 修改字体及全局配置
+
+### 修改配置站点信息和字体
+
+修改默认字体 `Inter` 为 `IBM_Plex_Sans` 。
+
+### 修改tailwind和globals.css
+
+修改 `tailwind.config.ts`，增加 颜色、字体和背景图
+
+修改 `globals.css`, 新增样式
+
+### 增加静态资源 `public/assets`
