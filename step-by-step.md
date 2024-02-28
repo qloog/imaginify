@@ -300,6 +300,16 @@ export default authMiddleware({
 
 此时可以看到 左侧显示的菜单列表，但移动端是看不到导航栏的，所以还需要针对移动端增加菜单栏。
 
+3、增加移动端导航
+
+安装 sheet 组件
+
+```bash
+npx shadcn-ui@latest add sheet
+```
+
+全部代码可以看 `components/shared/MobileNav.tsx`
+
 ## FAQ
 
 1、SVG在Nextjs中不显示
