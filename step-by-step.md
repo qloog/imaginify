@@ -131,3 +131,150 @@ export default Layout
 |           `-- [type]
 |               `-- page.tsx
 ```
+
+## 增加登录注册功能
+
+1、在 `dashboard.clerk.com` 创建新应用
+
+主要配置: Email, Username, Email, Google 和 Github
+
+2、新增 clerk 配置
+
+```env
+// .env.local
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_xxxxx
+CLERK_SECRET_KEY=sk_test_xxxxxx
+```
+
+3、根据文档安装 `clerk` SDK
+
+文档地址：https://clerk.com/docs/quickstarts/nextjs
+
+```bash
+# 安装 clerk
+npm install @clerk/nextjs
+```
+
+4、 配置 ClerkProvider
+
+```typescript
+// app/layout.tsx
+import { ClerkProvider } from '@clerk/nextjs'
+import './globals.css'
+ 
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (        
+    <ClerkProvider>
+      <html lang="en">
+        <body>{children}</body>
+      </html>
+    </ClerkProvider>
+  )
+}
+```
+
+5、增加中间件
+
+```typescript
+// middleware.ts
+import { authMiddleware } from "@clerk/nextjs";
+ 
+export default authMiddleware({});
+```
+
+6、运行应用, 打开 http://localhost:3000 可以看到登录界面
+
+```bash
+npm run dev
+```
+
+7、建立注册和登录路由目录
+
+建立注册和登录目录，添加 `page.tsx` 文件并分别补充内容。
+
+```bash
+.
+|-- (auth)
+|   |-- layout.tsx
+|   |-- sign-in
+|   |   `-- [[...sign-in]]
+|   |       `-- page.tsx
+|   `-- sign-up
+|       `-- [[...sign-up]]
+|           `-- page.tsx
+```
+
+注册
+
+```typescript
+// app/(auth)/sign-up/[[...sign-up]]/page.tsx
+import { SignUp } from '@clerk/nextjs'
+import React from 'react'
+
+const SignUpPage = () => {
+  return <SignUp />
+}
+
+export default SignUpPage
+```
+
+登录
+
+```typescript
+// app/(auth)/sign-in/[[...sign-in]]/page.tsx
+import { SignIn } from '@clerk/nextjs'
+import React from 'react'
+
+const SignInPage = () => {
+  return <SignIn />
+}
+
+export default SignInPage
+```
+
+8、增加配置
+
+```env
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
+```
+
+9、配置显示用户登录后按钮
+
+```typescript
+import { UserButton } from '@clerk/nextjs'
+import React from 'react'
+
+const Home = () => {
+  return (
+    <div>
+      <p>Home</p>
+
+      <UserButton afterSignOutUrl="/"/>
+    </div>
+  )
+}
+
+export default Home
+```
+
+9、定制外观样式
+
+```typescript
+// app/layout.tsx
+<ClerkProvider appearance={{
+  variables: { colorPrimary: '#624cf5'}
+}}>
+```
+
+> https://clerk.com/docs/references/nextjs/custom-signup-signin-pages
+
+## Reference2
+
+- https://www.youtube.com/watch?v=Ahwoks_dawU
