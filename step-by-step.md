@@ -275,6 +275,36 @@ export default Home
 
 > https://clerk.com/docs/references/nextjs/custom-signup-signin-pages
 
+## 增加导航
+
+包括PC侧边栏和移动端导航
+
+1、新增侧边栏组件 `components/shared/Sidebar.ts`
+其中需要添加 `Button`组件
+
+```bash
+npx shadcn-ui@latest add button
+```
+
+新增常量定义文件 `constants/index.ts`
+
+2、在中间件增加路由
+
+新增无需登录认证的路由
+
+```typescript
+export default authMiddleware({
+  publicRoutes: ['/', '/api/webhooks/clerk', '/api/webhooks/stripe']
+});
+```
+
+此时可以看到 左侧显示的菜单列表，但移动端是看不到导航栏的，所以还需要针对移动端增加菜单栏。
+
+## FAQ
+
+1、SVG在Nextjs中不显示
+
+
 ## Reference2
 
 - https://www.youtube.com/watch?v=Ahwoks_dawU
