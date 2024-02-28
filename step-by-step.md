@@ -1,5 +1,14 @@
 # 从0到1开发步骤
 
+## develop tools
+
+- VS Code
+- VS Code 插件
+  - Prettier
+  - ESLint
+  - ES7+ React/Redux/React-Native(dsznajder)
+  - Tailwind CSS IntelliSense
+
 ## Project Setup
 
 ### 使用Nextjs初始化项目
@@ -46,3 +55,79 @@ Success! Project initialization completed. You may now add components.
 修改 `globals.css`, 新增样式
 
 ### 增加静态资源 `public/assets`
+
+## 增加目录结构(路由)
+
+1、新增 `auth` 路由并增加基本布局
+
+```typescript
+// 新增layout
+// app/(auth)/layout.tsx
+import React from 'react'
+
+const Layout = () => {
+  return (
+    <div>layout</div>
+  )
+}
+
+export default Layout
+```
+
+```typescript
+// 完善布局
+import React from 'react'
+
+const Layout = ({ children}: { children: React.ReactNode }) => {
+  return (
+    <main className='auth'>{children}</main>
+  )
+}
+
+export default Layout
+```
+
+> rafce + tab 可创建基本结构
+
+2、新增 `root` 基本布局
+
+```typescript
+// 新增layout
+// app/(root)/layout.tsx
+import React from 'react'
+
+const Layout = ({ children}: { children: React.ReactNode }) => {
+  return (
+    <main className='root'>
+      <div className='root-container'>
+        <div className='wrapper'>
+          {children}
+        </div>
+      </div>
+    </main>
+  )
+}
+
+export default Layout
+```
+
+3、移动 `app/page.tsx` 到 `app/(root)`  
+4、新增功能目录
+
+```bash
+|-- (root)
+|   |-- credits
+|   |   `-- page.tsx
+|   |-- layout.tsx
+|   |-- page.tsx
+|   |-- profile
+|   |   `-- page.tsx
+|   `-- transformations
+|       |-- [id]
+|       |   |-- page.tsx
+|       |   `-- update
+|       |       `-- page.tsx
+|       `-- add
+|           `-- [type]
+|               `-- page.tsx
+```
