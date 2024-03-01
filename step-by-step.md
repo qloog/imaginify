@@ -337,6 +337,56 @@ npm install mongodb mongoose
 
 在 `lib/actions` 下新建 user, image, transaction 文件, 并填充对应的内容。
 
+## 新建github 仓库并push
+
+## 注册 Vercel 并部署应用
+
+1. 通过 https://vercel.com/new 注册后
+2. 导入GitHub对应账号的项目，
+3. 配置项目，主要是项目名称和环境变量，其他默认
+4. 最后点击 Deploy, 等待部署完成
+5. Congratulations! 如果部署成功会进入到 success 页面
+6. 点击 `Continue to  Dashboard` 进入到管理页面
+
+> 部署详情可以查看：[Next.js deployment documentation](https://nextjs.org/docs/deployment)
+
+## 配置回调地址
+
+上面部署完以后，vercel 会给分配一个域名
+
+1.将域名填入到 clerk Webhooks 里，
+2.在 `.evn.local` 或 环境变量(vercel)里添加配置 `WEBHOOK_SECRET=xxxx`
+3.安装 `svix` 用于回调校验
+
+```bash
+npm install svix
+```
+
+4.创建回调路由
+
+新建 `app/api/webhooks/clerk/route.ts`，并填入内容，参考：[route.ts](https://clerk.com/docs/integrations/webhooks/sync-data#create-the-endpoint-in-your-application)
+
+5.在中间件里新增 `api/webhooks/clerk`
+
+```typescript
+// middleware.ts
+export default authMiddleware({
+  publicRoutes: ['/', '/api/webhooks/clerk']
+});
+```
+
+6.校验
+
+可以在 `dashboard` 的 `webhooks` 里进行校验，具体可以找 `Endpoints` -> `Testing` tab。
+
+这样，clerk 的数据可以调用项目的回调接口来同步到后端数据库里。
+
+7.提交git
+
+提交到GitHub后，vercel会自动检测更新并重新构建。
+
+具体可以看 [Sync Clerk data to your backend with webhooks](https://clerk.com/docs/integrations/webhooks/sync-data#enable-webhooks)
+
 ## FAQ
 
 1、SVG在Nextjs中不显示
