@@ -310,6 +310,31 @@ npx shadcn-ui@latest add sheet
 
 全部代码可以看 `components/shared/MobileNav.tsx`
 
+## 增加 MongoDB及对应的 model
+
+1、官网注册账号并创建应用
+
+2、增加配置MongoDB数据库地址
+
+```env
+// .env.local
+...
+MONGODB_URL=mongodb+srv://eagle:<replace>5@cluster0.wgjvgpd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+...
+```
+
+3、安装MongoDB和客户端库
+
+```bash
+npm install mongodb mongoose
+```
+
+4、 新增相对应的model文件
+
+在 `lib/database/models` 下新建 user, image, transaction 文件，并填充对应的内容。
+
+
+
 ## FAQ
 
 1、SVG在Nextjs中不显示
