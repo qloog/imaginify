@@ -354,7 +354,7 @@ npm install mongodb mongoose
 
 上面部署完以后，vercel 会给分配一个域名
 
-1.将域名填入到 clerk Webhooks 里，
+1.将完整回调填入到 clerk Webhooks 里 `https://xxxxx.vercel.app/api/webhooks/clerk`
 2.在 `.evn.local` 或 环境变量(vercel)里添加配置 `WEBHOOK_SECRET=xxxx`
 3.安装 `svix` 用于回调校验
 
@@ -395,3 +395,4 @@ export default authMiddleware({
 ## Reference2
 
 - https://www.youtube.com/watch?v=Ahwoks_dawU
+- https://cloud.mongodb.com/
