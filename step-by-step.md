@@ -333,7 +333,9 @@ npm install mongodb mongoose
 
 在 `lib/database/models` 下新建 user, image, transaction 文件，并填充对应的内容。
 
+## 增加actions
 
+在 `lib/actions` 下新建 user, image, transaction 文件, 并填充对应的内容。
 
 ## FAQ
 
