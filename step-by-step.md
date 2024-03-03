@@ -392,10 +392,38 @@ export default authMiddleware({
 1、添加 `form`
 
 ```bash
-npx shadcn-ui@latest add form input select
+npx shadcn-ui@latest add form input select toast
 ```
 
 新增form `components/shared/TransformationForm` 并新增相应内容
+
+2、添加图片上传处理
+
+安装sdk
+
+```bash
+# 此sdk由社区维护，官方有 node 和 react sdk
+npm install next-cloudinary
+```
+
+> 官方文档：https://next.cloudinary.dev/
+
+添加配置
+
+```env
+// env.local
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=
+CLOUNDINARY_API_KEY=
+CLOUNDINARY_API_SECRET=
+```
+
+新增 `components/shared/MediaUploader.tsx` 及对应内容
+
+```bash
+npx shadcn-ui@latest add toast
+```
+
+> 如果想使用对应的功能，需要在 Coludinary 里进行配置
 
 ## FAQ
 
