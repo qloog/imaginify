@@ -387,6 +387,16 @@ export default authMiddleware({
 
 具体可以看 [Sync Clerk data to your backend with webhooks](https://clerk.com/docs/integrations/webhooks/sync-data#enable-webhooks)
 
+## 添加处理图片form
+
+1、添加 `form`
+
+```bash
+npx shadcn-ui@latest add form input select
+```
+
+新增form `components/shared/TransformationForm` 并新增相应内容
+
 ## FAQ
 
 1、SVG在Nextjs中不显示
@@ -396,3 +406,5 @@ export default authMiddleware({
 
 - https://www.youtube.com/watch?v=Ahwoks_dawU
 - https://cloud.mongodb.com/
+- https://console.cloudinary.com/
+- https://upstash.com/ for Redis
