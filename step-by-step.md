@@ -441,6 +441,10 @@ npm install cloudinary
 2. 保存图片信息到 MongoDB
 3. 修改图片时增加积分检查
 
+## 新增图片详情、更新和删除
+
+
+
 ## FAQ
 
 1、SVG在Nextjs中不显示
