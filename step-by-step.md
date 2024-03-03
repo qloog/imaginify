@@ -429,6 +429,18 @@ npx shadcn-ui@latest add toast
 
 新增 `components/shared/TransformedImage.tsx` 及对应内容
 
+## 保存图片
+
+安装 cloudinary
+
+```bash
+npm install cloudinary
+```
+
+1. 保存图片id到 cloudinary
+2. 保存图片信息到 MongoDB
+3. 修改图片时增加积分检查
+
 ## FAQ
 
 1、SVG在Nextjs中不显示
