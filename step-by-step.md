@@ -425,6 +425,10 @@ npx shadcn-ui@latest add toast
 
 > 如果想使用对应的功能，需要在 Coludinary 里进行配置
 
+## 新增转换后的图片组件
+
+新增 `components/shared/TransformedImage.tsx` 及对应内容
+
 ## FAQ
 
 1、SVG在Nextjs中不显示
