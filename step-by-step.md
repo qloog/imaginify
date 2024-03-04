@@ -443,16 +443,57 @@ npm install cloudinary
 
 ## 新增图片详情、更新和删除
 
+## 增加结算和支付
 
+这里主要使用 `stripe`
+
+1.安装 stripe
+
+```bash
+npm install stripe @stripe/stripe-js
+```
+
+2.配置 API Key
+
+```env
+# .env.local
+STRIPE_SECRET_KEY=xxx
+STRIPE_WEBHOOK_SECRET=xxx
+```
+
+3.增加webhook
+
+在 `strpie` 后台配置定义好的 `webhook` 地址，当支付成功时 `scripe` 可以通知业务方,
+
+业务方监听响应的事件event, 这里主要监听 `checkout.session.completed` 记录相应的流水信息等。
+
+> 更多帮助可以查看官方文档：https://docs.stripe.com/payments/checkout
+
+4.在中间件增加stripe路由
+
+```typescript
+...
+export default authMiddleware({
+  publicRoutes: ['/', '/api/webhooks/clerk', '/api/webhooks/stripe']
+});
+...
+```
+
+## 完善个人资料页
+
+## 部署
+
+更新环境变量，重新构建即可
+
+1. 完善环境变量
+2. redeloy
 
 ## FAQ
 
-1、SVG在Nextjs中不显示
-
-
-## Reference2
+## References
 
 - https://www.youtube.com/watch?v=Ahwoks_dawU
 - https://cloud.mongodb.com/
 - https://console.cloudinary.com/
 - https://upstash.com/ for Redis
+- https://docs.stripe.com/payments/checkout
