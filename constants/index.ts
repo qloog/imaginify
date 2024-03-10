@@ -15,6 +15,11 @@ export const navLinks = [
     icon: "/assets/icons/stars.svg",
   },
   {
+    label: "Background Remove",
+    route: "/transformations/add/removeBackground",
+    icon: "/assets/icons/camera.svg",
+  },
+  {
     label: "Object Remove",
     route: "/transformations/add/remove",
     icon: "/assets/icons/scan.svg",
@@ -25,9 +30,9 @@ export const navLinks = [
     icon: "/assets/icons/filter.svg",
   },
   {
-    label: "Background Remove",
-    route: "/transformations/add/removeBackground",
-    icon: "/assets/icons/camera.svg",
+    label: "Object Replace",
+    route: "/transformations/add/replace",
+    icon: "/assets/icons/scan.svg",
   },
   {
     label: "Profile",
@@ -156,6 +161,15 @@ export const transformationTypes = {
     subTitle: "Identify and recolor objects from the image",
     config: {
       recolor: { prompt: "", to: "", multiple: true },
+    },
+    icon: "filter.svg",
+  },
+  replace: {
+    type: "replace",
+    title: "Object Replace",
+    subTitle: "Identify and replace objects from the image",
+    config: {
+      replace: { from: "", to: "", preserveGeometry: true },
     },
     icon: "filter.svg",
   },

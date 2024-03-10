@@ -481,6 +481,10 @@ export default authMiddleware({
 
 ## 完善个人资料页
 
+## 增加 Generative Replace
+
+> https://ai.cloudinary.com/demos/replace
+
 ## 部署
 
 更新环境变量，重新构建即可

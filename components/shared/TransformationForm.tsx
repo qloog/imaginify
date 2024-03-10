@@ -40,6 +40,8 @@ export const formSchema = z.object({
   aspectRatio: z.string().optional(),
   color: z.string().optional(),
   prompt: z.string().optional(),
+  from: z.string().optional(),
+  to: z.string().optional(),
   publicId: z.string(),
 })
 
@@ -265,6 +267,48 @@ const TransformationForm = ({ action, data = null, userId,
                 )}
               />
             )}
+          </div>
+        )}
+
+        {(type === 'replace') && (
+          <div className="prompt-field">
+            <CustomField 
+              control={form.control}
+              name="from"
+              formLabel='Object to replace'
+              className="w-full"
+              render={({ field }) => (
+                <Input 
+                  value={field.value}
+                  className="input-field"
+                  onChange={(e) => onInputChangeHandler(
+                    'from',
+                    e.target.value,
+                    type,
+                    field.onChange
+                  )}
+                />
+              )}
+            />
+
+              <CustomField 
+                control={form.control}
+                name="to"
+                formLabel="Replacement Object"
+                className="w-full"
+                render={({ field }) => (
+                  <Input 
+                    value={field.value}
+                    className="input-field"
+                    onChange={(e) => onInputChangeHandler(
+                      'to',
+                      e.target.value,
+                      'replace',
+                      field.onChange
+                    )}
+                  />
+                )}
+              />
           </div>
         )}
 

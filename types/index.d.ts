@@ -68,6 +68,11 @@ declare type Transformations = {
     to: string;
     multiple?: boolean;
   };
+  replace?: {
+    from: string;
+    to: string;
+    preserveGeometry: boolean;
+  };
   removeBackground?: boolean;
 };
 
@@ -93,7 +98,8 @@ declare type TransformationTypeKey =
   | "fill"
   | "remove"
   | "recolor"
-  | "removeBackground";
+  | "removeBackground"
+  | "replace";
 
 // ====== URL QUERY PARAMS
 declare type FormUrlQueryParams = {
