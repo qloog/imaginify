@@ -500,4 +500,7 @@ export default authMiddleware({
 - https://cloud.mongodb.com/
 - https://console.cloudinary.com/
 - https://upstash.com/ for Redis
+- https://mongoosejs.com/
 - https://docs.stripe.com/payments/checkout
+- https://github.com/weijunext/nextjs-learn-demos/tree/membership
+- https://www.lemonsqueezy.com/
