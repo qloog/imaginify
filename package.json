@@ -11,6 +11,7 @@
   "dependencies": {
     "@clerk/nextjs": "^4.29.8",
     "@hookform/resolvers": "^3.3.4",
+    "@lemonsqueezy/lemonsqueezy.js": "^2.2.0",
     "@radix-ui/react-alert-dialog": "^1.0.5",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-label": "^2.0.2",
@@ -21,6 +22,7 @@
     "class-variance-authority": "^0.7.0",
     "cloudinary": "^2.0.2",
     "clsx": "^2.1.0",
+    "logsnag": "^1.0.0",
     "lucide-react": "^0.341.0",
     "mongodb": "^6.3.0",
     "mongoose": "^8.2.0",
