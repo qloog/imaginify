@@ -1,7 +1,7 @@
 import { Schema, model, models } from "mongoose";
 
 const TransactionSchema = new Schema({
-  payment: {
+  paymentMethod: {
     type: String,
     required: true,
   },
