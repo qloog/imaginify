@@ -445,6 +445,8 @@ npm install cloudinary
 
 ## 增加结算和支付
 
+### Stripe 支付
+
 这里主要使用 `stripe`
 
 1.安装 stripe
@@ -479,6 +481,17 @@ export default authMiddleware({
 ...
 ```
 
+### Lemon Squeezy 支付
+
+1. 安装 sdk
+
+```bash
+npm install @lemonsqueezy/lemonsqueezy.js
+```
+
+
+> 参考源码：https://github.com/lmsqueezy/nextjs-billing
+
 ## 完善个人资料页
 
 ## 增加 Generative Replace
@@ -494,6 +507,8 @@ export default authMiddleware({
 
 ## FAQ
 
+测试环境支付必读：https://docs.stripe.com/testing
+
 ## References
 
 - https://www.youtube.com/watch?v=Ahwoks_dawU
@@ -501,3 +516,4 @@ export default authMiddleware({
 - https://console.cloudinary.com/
 - https://upstash.com/ for Redis
 - https://docs.stripe.com/payments/checkout
+- https://docs.lemonsqueezy.com/guides/tutorials/nextjs-saas-billing

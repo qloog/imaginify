@@ -85,6 +85,7 @@ declare type CheckoutTransactionParams = {
 };
 
 declare type CreateTransactionParams = {
+  paymentMethod: string;
   stripeId: string;
   amount: number;
   credits: number;

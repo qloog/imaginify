@@ -49,6 +49,7 @@ export const navLinks = [
 export const plans = [
   {
     _id: 1,
+    lemon_variant_id: 0,
     name: "Free",
     icon: "/assets/icons/free-plan.svg",
     price: 0,
@@ -74,6 +75,7 @@ export const plans = [
   },
   {
     _id: 2,
+    lemon_variant_id: 323771,
     name: "Pro Package",
     icon: "/assets/icons/free-plan.svg",
     price: 40,
@@ -99,6 +101,7 @@ export const plans = [
   },
   {
     _id: 3,
+    lemon_variant_id: 323779,
     name: "Premium Package",
     icon: "/assets/icons/free-plan.svg",
     price: 199,

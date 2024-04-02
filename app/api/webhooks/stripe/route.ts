@@ -25,6 +25,7 @@ export async function POST(request: Request) {
     const { id, amount_total, metadata } = event.data.object;
 
     const transaction = {
+      paymentMethod: 'stripe',
       stripeId: id,
       amount: amount_total ? amount_total / 100 : 0,
       plan: metadata?.plan || "",
