@@ -489,6 +489,37 @@ export default authMiddleware({
 npm install @lemonsqueezy/lemonsqueezy.js
 ```
 
+2.配置 API Key
+
+```env
+# .env.local
+LEMONSQUEEZY_API_KEY=xxx
+LEMONSQUEEZY_STORE_ID=xxx
+LEMONSQUEEZY_WEBHOOK_SECRET=xxx
+
+# Logsnag 用于收集webhook日志，可选，因为 lemon后台也可以看回调日志
+LOGSNAG_TOKEN=xxx
+LOGSNAG_PROJECT=xxx
+LOGSNAG_CHANNEL=xxx
+```
+
+3.增加webhook
+
+在 `lemonsqueezy` 后台配置定义好的 `webhook` 地址，当支付成功时 `lemonsqueezy` 可以通知业务方,
+
+业务方监听响应的事件event, 这里主要监听 `order_created` 记录相应的流水信息等。
+
+> 更多帮助可以查看官方文档：https://docs.lemonsqueezy.com/guides/developer-guide/webhooks
+
+4.在中间件增加 lemonsqueezy 路由
+
+```typescript
+...
+export default authMiddleware({
+  publicRoutes: ['/', '/api/webhooks/clerk', '/api/webhooks/stripe', '/api/webhooks/lemonsqueezy']
+});
+...
+```
 
 > 参考源码：https://github.com/lmsqueezy/nextjs-billing
 
@@ -503,7 +534,7 @@ npm install @lemonsqueezy/lemonsqueezy.js
 更新环境变量，重新构建即可
 
 1. 完善环境变量
-2. redeloy
+2. redeploy
 
 ## FAQ
 
