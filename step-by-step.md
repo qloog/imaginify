@@ -548,3 +548,4 @@ export default authMiddleware({
 - https://upstash.com/ for Redis
 - https://docs.stripe.com/payments/checkout
 - https://docs.lemonsqueezy.com/guides/tutorials/nextjs-saas-billing
+- https://docs.lemonsqueezy.com/help/webhooks
