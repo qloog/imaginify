@@ -4,6 +4,9 @@ import { redirect } from "next/navigation";
 
 import Header from "@/components/shared/Header";
 import { Button } from "@/components/ui/button";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { RocketIcon } from "@radix-ui/react-icons"
+
 import { plans } from "@/constants";
 import { getUserById } from "@/lib/actions/user.action";
 import Checkout from "@/components/shared/CheckoutLemon";
@@ -23,6 +26,13 @@ const Credits = async () => {
       />
 
       <section>
+        <Alert className='mt-10'>
+          <RocketIcon className="h-4 w-4" />
+          <AlertTitle>Warm reminder!</AlertTitle>
+          <AlertDescription>
+            1 Credit = 1 Image
+          </AlertDescription>
+        </Alert>
         <ul className="credits-list">
           {plans.map((plan) => (
             <li key={plan.name} className="credits-item">
@@ -62,7 +72,7 @@ const Credits = async () => {
               ) : (
                 <SignedIn>
                   <Checkout
-                    variant_id={plan.lemon_variant_id}
+                    variant_id={Number(plan.lemon_variant_id)}
                     plan={plan.name}
                     amount={plan.price}
                     credits={plan.credits}
