@@ -49,7 +49,7 @@ export const navLinks = [
 export const plans = [
   {
     _id: 1,
-    lemon_variant_id: 0,
+    lemon_variant_id: "",
     name: "Free",
     icon: "/assets/icons/free-plan.svg",
     price: 0,
@@ -75,14 +75,14 @@ export const plans = [
   },
   {
     _id: 2,
-    lemon_variant_id: 323771,
-    name: "Pro Package",
+    lemon_variant_id: process.env.LEMONSQUEEZY_BASIC_VARIANT_ID,
+    name: "Basic Package",
     icon: "/assets/icons/free-plan.svg",
-    price: 40,
-    credits: 120,
+    price: 6,
+    credits: 30,
     inclusions: [
       {
-        label: "120 Credits",
+        label: "30 Credits",
         isIncluded: true,
       },
       {
@@ -101,14 +101,14 @@ export const plans = [
   },
   {
     _id: 3,
-    lemon_variant_id: 323779,
-    name: "Premium Package",
+    lemon_variant_id: process.env.LEMONSQUEEZY_PRO_VARIANT_ID,
+    name: "Pro Package",
     icon: "/assets/icons/free-plan.svg",
-    price: 199,
-    credits: 2000,
+    price: 29,
+    credits: 200,
     inclusions: [
       {
-        label: "2000 Credits",
+        label: "200 Credits",
         isIncluded: true,
       },
       {
@@ -125,6 +125,32 @@ export const plans = [
       },
     ],
   },
+  // {
+  //   _id: 4,
+  //   lemon_variant_id: 323779,
+  //   name: "Premium Package",
+  //   icon: "/assets/icons/free-plan.svg",
+  //   price: 99,
+  //   credits: 120,
+  //   inclusions: [
+  //     {
+  //       label: "120 Credits",
+  //       isIncluded: true,
+  //     },
+  //     {
+  //       label: "Full Access to Services",
+  //       isIncluded: true,
+  //     },
+  //     {
+  //       label: "Priority Customer Support",
+  //       isIncluded: true,
+  //     },
+  //     {
+  //       label: "Priority Updates",
+  //       isIncluded: true,
+  //     },
+  //   ],
+  // },
 ];
 
 export const transformationTypes = {

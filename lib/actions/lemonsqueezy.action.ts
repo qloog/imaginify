@@ -41,7 +41,7 @@ export async function getCheckoutURL(variantId: number, credits: number, plan: s
         enabledVariants: [variantId],
         redirectUrl: `${process.env.NEXT_PUBLIC_SERVER_URL}/profile`,
         receiptButtonText: 'Go to Profile',
-        receiptThankYouNote: 'Thank you for signing up to AIGC Studio!',
+        receiptThankYouNote: 'Thank you for signing up to Imaginify Club!',
       },
     }
   )

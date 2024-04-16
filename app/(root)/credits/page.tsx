@@ -6,7 +6,7 @@ import Header from "@/components/shared/Header";
 import { Button } from "@/components/ui/button";
 import { plans } from "@/constants";
 import { getUserById } from "@/lib/actions/user.action";
-import Checkout from "@/components/shared/Checkout";
+import Checkout from "@/components/shared/CheckoutLemon";
 
 const Credits = async () => {
   const { userId } = auth();
@@ -62,6 +62,7 @@ const Credits = async () => {
               ) : (
                 <SignedIn>
                   <Checkout
+                    variant_id={Number(plan.lemon_variant_id)}
                     plan={plan.name}
                     amount={plan.price}
                     credits={plan.credits}
