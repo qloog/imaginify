@@ -229,7 +229,7 @@
 
   /* Credits Page */
   .credits-list {
-    @apply mt-11 grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-9 xl:grid-cols-3;
+    @apply mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-9 xl:grid-cols-3;
   }
 
   .credits-item {
