@@ -1,6 +1,7 @@
-import { SignedIn, auth } from "@clerk/nextjs";
 import Image from "next/image";
 import { redirect } from "next/navigation";
+import { Metadata } from 'next';
+import { SignedIn, auth } from "@clerk/nextjs";
 
 import Header from "@/components/shared/Header";
 import { Button } from "@/components/ui/button";
@@ -10,6 +11,12 @@ import { RocketIcon } from "@radix-ui/react-icons"
 import { plans } from "@/constants";
 import { getUserById } from "@/lib/actions/user.action";
 import Checkout from "@/components/shared/CheckoutLemon";
+
+export const metadata: Metadata = {
+  title: "AI Image Enhancement Plans | Choose the Perfect Plan for Your Photos",
+  description:
+    "Explore our range of AI image enhancement plans tailored to meet your needs! Select the ideal plan to enhance your photos with ease. Find the perfect balance of features and affordability to elevate your images to new heights. Get started now!",
+}
 
 const Credits = async () => {
   const { userId } = auth();
@@ -26,11 +33,11 @@ const Credits = async () => {
       />
 
       <section>
-        <Alert className='mt-10'>
+        <Alert className='mt-5'>
           <RocketIcon className="h-4 w-4" />
-          <AlertTitle>Warm reminder!</AlertTitle>
+          <AlertTitle>Warm reminder: 1 Credit = 1 Image</AlertTitle>
           <AlertDescription>
-            1 Credit = 1 Image
+            
           </AlertDescription>
         </Alert>
         <ul className="credits-list">

@@ -1,8 +1,15 @@
+import { Metadata } from 'next'
+import Image from "next/image"
+import Link from "next/link"
 import { Collection } from "@/components/shared/Collection"
 import { navLinks } from "@/constants"
 import { getAllImages } from "@/lib/actions/image.action"
-import Image from "next/image"
-import Link from "next/link"
+
+export const metadata: Metadata = {
+  title: "AI Image Enhancement Services | Transform Your Photos with AI Technology",
+  description:
+    "Discover our AI-powered image enhancement services! Enhance your photos effortlessly with cutting-edge artificial intelligence technology. Transform ordinary images into stunning visual masterpieces. Get started today!",
+}
 
 const Home = async ({ searchParams }: SearchParamProps) => {
   const page = Number(searchParams?.page) || 1;
