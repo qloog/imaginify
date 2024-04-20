@@ -1,6 +1,7 @@
-import { auth } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
+import { Metadata, ResolvingMetadata } from 'next'
+import { auth } from "@clerk/nextjs";
 
 import Header from "@/components/shared/Header";
 import TransformedImage from "@/components/shared/TransformedImage";
@@ -8,6 +9,25 @@ import { Button } from "@/components/ui/button";
 import { getImageById } from "@/lib/actions/image.action";
 import { getImageSize } from "@/lib/utils";
 import { DeleteConfirmation } from "@/components/shared/DeleteConfirmation";
+ 
+type Props = {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+}
+
+export async function generateMetadata(
+  { params }: Props,
+): Promise<Metadata> {
+
+  // read route params
+  const id = params.id
+
+  const image = await getImageById(id);
+ 
+  return {
+    title: image.title,
+  }
+}
 
 const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
   const { userId } = auth();
