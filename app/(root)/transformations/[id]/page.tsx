@@ -25,7 +25,7 @@ export async function generateMetadata(
   const image = await getImageById(id);
  
   return {
-    title: image.title,
+    title: image.title + ' ' + image.transformationType,
   }
 }
 
